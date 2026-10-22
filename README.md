@@ -38,7 +38,7 @@ Topics are single-selection filters. A URL such as `?topic=AI-assisted#work` ope
 
 ## Automatic deployment
 
-The workflow in `.github/workflows/deploy.yml` builds on pull requests and deploys successful pushes to `main`. GitHub Pages must use **GitHub Actions** as its source. No personal access token or additional deployment secret is needed by the workflow.
+The workflow in `.github/workflows/deploy.yml` builds and deploys every push to `main`, using one runner from installation through publication. It can also be triggered manually on `main`. GitHub Pages must use **GitHub Actions** as its source. No personal access token or additional deployment secret is needed by the workflow. Run `npm run build` before proposing changes.
 
 `vite.config.ts` sets `base: '/portfolio/'`, matching the deployment URL. If the repository name changes, update this base, the canonical/Open Graph URLs, `robots.txt`, and `sitemap.xml`.
 
