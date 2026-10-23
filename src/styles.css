@@ -52,7 +52,6 @@
   .primary-link:hover { background: #385669; }
   .intro-footnote { display: flex; align-items: center; gap: 9px; font-size: .72rem; color: var(--muted); margin-top: 35px; }
   .location-dot { width: 6px; height: 6px; border-radius: 50%; background: #537064; }
-  .footnote-divider { height: 12px; width: 1px; background: #bfccd4; margin-inline: 5px; }
   .work-count { font-size: .75rem; color: var(--muted); }
   .filter-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); padding-block: 20px 30px; }
   .filters { display: flex; flex-wrap: wrap; gap: 7px; }

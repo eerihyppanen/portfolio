@@ -102,7 +102,7 @@ export default function App() {
           <h1 id="intro-heading">Ideas into<br />everyday use.</h1>
           <p className="intro-text">Software engineering student at LUT University. I build mobile apps, web experiences, and useful little tools—with a soft spot for thoughtful interfaces.</p>
           <a className="primary-link" href="#work">Explore my work <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6" /></svg></a>
-          <div className="intro-footnote"><span className="location-dot" />Based in Finland<span className="footnote-divider" />Building & learning</div>
+          <div className="intro-footnote"><span className="location-dot" />Based in Finland</div>
         </div>
       </section>
       <section className="work-section wrap" id="work" aria-labelledby="work-heading">
@@ -112,7 +112,7 @@ export default function App() {
       </section>
       <section className="about-section" id="about" aria-labelledby="about-heading"><div className="wrap about-layout">
         <div className="about-title"><span className="section-kicker">A little about me</span><h2 id="about-heading">Curious by nature.<br />Practical by design.</h2><p className="signature">Eeri Hyppänen</p></div>
-        <div className="about-copy"><p className="about-lead">I like turning a real need into something people can use.</p><p>I’m studying software engineering at LUT University, with an interest in mobile development and UI/UX. My projects range from keeping track of a workout to making public data—and campus lunch menus—easier to explore.</p><p>I’m also exploring AI-assisted development. Training Log and Campus Food are part of that learning: building with AI while learning how the interface, application logic, and data fit together.</p>
+        <div className="about-copy"><p className="about-lead">I like turning a real need into something people can use.</p><p>I’m studying software engineering at LUT University, with an interest in mobile development and UI/UX. My projects range from keeping track of a workout to making public data—and campus lunch menus—easier to explore.</p><p>I’m also exploring AI-assisted development. Training Log, Campus Food, and my Discord bot are part of that learning: building with AI while learning how the interface, application logic, and data fit together.</p>
           <dl className="skills"><div><dt>Interfaces</dt><dd>Kotlin, Jetpack Compose, React, HTML & CSS, responsive design</dd></div><div><dt>Applications</dt><dd>TypeScript, JavaScript, Node.js, Express, REST APIs</dd></div><div><dt>Data & workflow</dt><dd>Room, MongoDB, Git, regression testing, AI-assisted development</dd></div></dl>
         </div>
       </div></section>
