@@ -98,27 +98,27 @@ export default function App() {
     <main>
       <section className="hero wrap" aria-labelledby="intro-heading">
         <div className="hero-copy">
-          <p className="intro-name">Hello, I’m Eeri.</p>
-          <h1 id="intro-heading">Ideas into<br />everyday use.</h1>
-          <p className="intro-text">Software engineering student at LUT University. I build mobile apps, web experiences, and useful little tools—with a soft spot for thoughtful interfaces.</p>
-          <a className="primary-link" href="#work">Explore my work <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6" /></svg></a>
+          <p className="intro-name">Hi, I’m Eeri.</p>
+          <h1 id="intro-heading">I build apps<br />and websites.</h1>
+          <p className="intro-text">I study software engineering at LUT University. Most of my projects are mobile apps and small web tools, and I’m especially interested in UI design.</p>
+          <a className="primary-link" href="#work">See my projects <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6" /></svg></a>
           <div className="intro-footnote"><span className="location-dot" />Based in Finland</div>
         </div>
       </section>
       <section className="work-section wrap" id="work" aria-labelledby="work-heading">
-        <div className="section-heading"><div><h2 id="work-heading">Selected work</h2><p>Different problems. A hands-on approach.</p></div><span className="work-count">Four featured projects + one more</span></div>
+        <div className="section-heading"><div><h2 id="work-heading">Projects</h2><p>Personal projects and university coursework.</p></div></div>
         <div className="filter-row"><div className="filters" role="group" aria-label="Filter projects by topic">{topics.map(item => <button key={item} aria-pressed={topic === item} onClick={() => selectTopic(item)}>{item}</button>)}</div><p className="result-count" role="status" aria-live="polite">{visible.length} {visible.length === 1 ? 'project' : 'projects'}</p></div>
         <div className="project-grid">{visible.map(project => <ProjectCard key={project.id} project={project} onPreview={setPreview} />)}</div>
       </section>
       <section className="about-section" id="about" aria-labelledby="about-heading"><div className="wrap about-layout">
-        <div className="about-title"><span className="section-kicker">A little about me</span><h2 id="about-heading">Curious by nature.<br />Practical by design.</h2><p className="signature">Eeri Hyppänen</p></div>
-        <div className="about-copy"><p className="about-lead">I like turning a real need into something people can use.</p><p>I’m studying software engineering at LUT University, with an interest in mobile development and UI/UX. My projects range from keeping track of a workout to making public data—and campus lunch menus—easier to explore.</p><p>I’m also exploring AI-assisted development. Training Log, Campus Food, and my Discord bot are part of that learning: building with AI while learning how the interface, application logic, and data fit together.</p>
+        <div className="about-title"><h2 id="about-heading">About me</h2></div>
+        <div className="about-copy"><p className="about-lead">Most of my projects start from an everyday problem, like logging workouts or checking what’s for lunch on campus.</p><p>I study software engineering at LUT University. I’m most interested in mobile development and UI/UX design.</p><p>I also use AI tools when I code. Training Log, Campus Food, and the Discord bot were built with AI assistance, and working that way has taught me a lot about how the UI, the app logic, and the data fit together.</p>
           <dl className="skills"><div><dt>Interfaces</dt><dd>Kotlin, Jetpack Compose, React, HTML & CSS, responsive design</dd></div><div><dt>Applications</dt><dd>TypeScript, JavaScript, Node.js, Express, REST APIs</dd></div><div><dt>Data & workflow</dt><dd>Room, MongoDB, Git, regression testing, AI-assisted development</dd></div></dl>
         </div>
       </div></section>
-      <section className="contact-section wrap" id="contact" aria-labelledby="contact-heading"><div><p className="section-kicker">Let’s connect</p><h2 id="contact-heading">Have something in mind?</h2><p>I’d be happy to talk about my projects, development, or what comes next.</p></div><div className="contact-links"><a href="https://www.linkedin.com/in/eerihyppanen" target="_blank" rel="noreferrer"><span className="contact-label"><LinkedInIcon />Find me on LinkedIn</span><ExternalIcon /></a><a href="https://github.com/eerihyppanen" target="_blank" rel="noreferrer"><span className="contact-label"><GitHubIcon />Explore my GitHub</span><ExternalIcon /></a></div></section>
+      <section className="contact-section wrap" id="contact" aria-labelledby="contact-heading"><div><h2 id="contact-heading">Get in touch</h2><p>The easiest way to reach me is on LinkedIn. My code is on GitHub.</p></div><div className="contact-links"><a href="https://www.linkedin.com/in/eerihyppanen" target="_blank" rel="noreferrer"><span className="contact-label"><LinkedInIcon />LinkedIn</span><ExternalIcon /></a><a href="https://github.com/eerihyppanen" target="_blank" rel="noreferrer"><span className="contact-label"><GitHubIcon />GitHub</span><ExternalIcon /></a></div></section>
     </main>
-    <footer className="site-footer wrap"><span>© {new Date().getFullYear()} Eeri Hyppänen</span><span>Made with care, in Finland.</span><a href="#top" onClick={event => { event.preventDefault(); window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }) }}>Back to top ↑</a></footer>
+    <footer className="site-footer wrap"><span>© {new Date().getFullYear()} Eeri Hyppänen</span><a href="#top" onClick={event => { event.preventDefault(); window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' }) }}>Back to top ↑</a></footer>
     <ScreenshotDialog project={preview} onClose={() => setPreview(null)} />
   </>
 }
