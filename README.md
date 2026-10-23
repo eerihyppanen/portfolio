@@ -32,7 +32,7 @@ npm run preview   # Serve the production build
 - `src/styles.css`: colors, typography, and responsive layouts.
 - `public/images/`: self-hosted project captures. [Image provenance](docs/content-sources.md) records where each came from.
 
-The four featured projects are Training Log, Discord Bot, Statistics Portal, and Forum. Campus Food is additional work with a live demo. Training Log's source remains private; its public documentation is linked instead. Campus Food's private repository is not exposed.
+The six projects, strongest first, are Training Log, Distributed Chat, Campus Food (which has a live demo), Discord Bot, Statistics Portal, and Forum. Training Log's source remains private; its public documentation is linked instead. Campus Food's private repository is not exposed.
 
 Topics are single-selection filters. A URL such as `?topic=AI-assisted#work` opens that selection directly. Back/forward navigation restores the selected topic. Projects can belong to several topics. AI-assisted means confirmed use of AI during development; an AI API integration alone is not labeled as AI-assisted authorship.
 
