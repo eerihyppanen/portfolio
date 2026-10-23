@@ -10,9 +10,9 @@ An original interface, using the old portfolio only as a source of personal fact
     name                       work / about / contact
     introduction
     topic filters
-    Training Log               Discord Bot
-    Statistics Portal          Forum
-    Campus Food
+    Training Log               Distributed Chat
+    Discord Bot                Statistics Portal
+    Forum                      Campus Food
     about / capabilities
     contact
 

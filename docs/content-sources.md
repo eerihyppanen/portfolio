@@ -11,6 +11,7 @@ Name, LUT University studies, mobile/UI interests, GitHub, and LinkedIn come fro
 | Project | Evidence | Image |
 | --- | --- | --- |
 | Training Log | [Public documentation](https://github.com/eerihyppanen/TrainingAppReadme); author confirmed AI assistance | `training-workout.png` and `training-progress.png`, original screenshots linked in that README |
+| Distributed Chat | [README and source](https://github.com/eerihyppanen/Distributed_Project); author confirmed it was not built with AI | `distributed-chat.png`, the original React client's login screen served locally on 23 October 2026; MongoDB was unavailable in the capture environment, so no backend or synthetic messages |
 | Discord Bot | [Repository](https://github.com/eerihyppanen/discordBot), reminder command, persistence utilities, tests, and updated README; author confirmed AI assistance | `discord-source.png`, browser capture of the public reminder command source |
 | Statistics Portal | [README and source](https://github.com/eerihyppanen/ProjectWorkWeb), including its explicit “What I Did” section | `statistics.png`, original local interface with its built-in manual; original upstream API endpoints unavailable |
 | Forum | [README and source](https://github.com/eerihyppanen/RedditExercise) | `forum.png`, original registration page served locally; no backend or synthetic forum posts |
