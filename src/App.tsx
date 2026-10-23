@@ -98,12 +98,16 @@ export default function App() {
     <main>
       <section className="hero wrap" aria-labelledby="intro-heading">
         <div className="hero-copy">
-          <p className="intro-name">Hi, I’m Eeri.</p>
-          <h1 id="intro-heading">I build apps<br />and websites.</h1>
-          <p className="intro-text">I’m a master’s student in Software Product Management and Business at LUT University, with a bachelor’s in software engineering. I build mobile apps and small web tools, and I often work with AI coding tools like Claude Code and Codex.</p>
+          <h1 id="intro-heading">Eeri Hyppänen</h1>
+          <p className="intro-text">Master’s student in Software Product Management and Business at LUT University.</p>
           <a className="primary-link" href="#work">See my projects <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6" /></svg></a>
-          <div className="intro-footnote"><span className="location-dot" />Based in Finland</div>
         </div>
+        <dl className="hero-facts">
+          <div><dt>Now</dt><dd>MSc Software Product Management and Business, LUT</dd></div>
+          <div><dt>Before</dt><dd>BSc Software Engineering, minor in IEM</dd></div>
+          <div><dt>Focus</dt><dd>Mobile apps, web, AI-assisted development</dd></div>
+          <div><dt>Location</dt><dd>Finland</dd></div>
+        </dl>
       </section>
       <section className="work-section wrap" id="work" aria-labelledby="work-heading">
         <div className="section-heading"><div><h2 id="work-heading">Projects</h2><p>Personal projects and university coursework.</p></div></div>
