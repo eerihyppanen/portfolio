@@ -11,8 +11,8 @@ An original interface, using the old portfolio only as a source of personal fact
     introduction
     topic filters
     Training Log               Distributed Chat
-    Discord Bot                Statistics Portal
-    Forum                      Campus Food
+    Campus Food                Discord Bot
+    Statistics Portal          Forum
     about / capabilities
     contact
 
