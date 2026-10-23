@@ -4,7 +4,7 @@ Reviewed on 22 October 2026. All screenshots are stored locally so the published
 
 ## Personal information
 
-Name, LUT University studies, mobile/UI interests, GitHub, and LinkedIn come from the author's [previous portfolio](https://github.com/eerihyppanen/codespaces-portfolio). The old template's code, icons, and stock photographs were not reused.
+Name, LUT University studies, mobile/UI interests, GitHub, and LinkedIn come from the author's [previous portfolio](https://github.com/eerihyppanen/codespaces-portfolio). The old template's code, icons, and stock photographs were not reused. Degree details (software engineering bachelor's with an IEM minor, master's in Software Product Management and Business, data analytics courses) and AI tool experience were supplied by the author in October 2026.
 
 ## Projects
 
