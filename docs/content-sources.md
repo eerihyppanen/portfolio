@@ -10,6 +10,7 @@ Name, LUT University studies, mobile/UI interests, GitHub, and LinkedIn come fro
 
 | Project | Evidence | Image |
 | --- | --- | --- |
+| LUT Lunch MCP | [README and source](https://github.com/eerihyppanen/lut-lunch-mcp), [npm package](https://www.npmjs.com/package/@eerihyppanen/lut-lunch-mcp), and the author's project brief (release 0.3.1, 26 October 2026); author confirmed it was built with Claude Code | `lut-lunch-mcp.png`, the top of the actual README rendered locally with GitHub's README stylesheet on 26 October 2026 (github.com styles were unreachable from the capture environment) |
 | Training Log | [Public documentation](https://github.com/eerihyppanen/TrainingAppReadme); author confirmed AI assistance | `training-workout.png` and `training-progress.png`, original screenshots linked in that README |
 | Distributed Chat | [README and source](https://github.com/eerihyppanen/Distributed_Project); author confirmed it was not built with AI | `distributed-chat.png`, the original React client's login screen served locally on 23 October 2026; MongoDB was unavailable in the capture environment, so no backend or synthetic messages |
 | Discord Bot | [Repository](https://github.com/eerihyppanen/discordBot), reminder command, persistence utilities, tests, and updated README; author confirmed AI assistance | `discord-source.png`, browser capture of the public reminder command source |
@@ -24,4 +25,4 @@ Original Training Log image URLs:
 
 Discord capture: https://github.com/eerihyppanen/discordBot/blob/main/src/commands/remind.js
 
-The author approved labeled previews for Discord Bot and Statistics Portal while actual runtime screenshots are unavailable. Do not replace these with generated mockups presented as real captures. The AI-assisted filter currently includes only the explicitly confirmed Training Log, Discord Bot, and Campus Food projects. Add other projects after confirming their development process.
+The author approved labeled previews for Discord Bot and Statistics Portal while actual runtime screenshots are unavailable. Do not replace these with generated mockups presented as real captures. The AI-assisted filter currently includes only the explicitly confirmed LUT Lunch MCP, Training Log, Discord Bot, and Campus Food projects. Add other projects after confirming their development process.

@@ -19,6 +19,28 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: 'lut-lunch-mcp',
+    title: 'LUT Lunch MCP',
+    category: 'MCP server',
+    description: 'An MCP server that lets AI assistants like Claude and ChatGPT answer questions about lunch on LUT’s Skinnarila campus: today’s menus, vegan or gluten-free options, and how often a dish has been served.',
+    contribution: 'A personal project I built in four days with Claude Code as a pair programmer. I set the goals and constraints, approved each design, plan, and release, and tested every step.',
+    details: [
+      'Reads three restaurants from three different sources (two JSON APIs and an HTML page) and normalizes diet labels and the EU’s 14 allergens. Dishes without published allergens are never shown as safe.',
+      'Runs as an npm package and as a free remote server on Cloudflare Workers. I redesigned the menu history data to fit the free plan’s CPU limit, cutting query time from about 30 ms to 2.3 ms.',
+      'A daily collector saves every menu to a public dataset. 254 automated tests, and each release deploys automatically after a live check.',
+    ],
+    topics: ['AI-assisted', 'Bots & APIs', 'Data'],
+    stack: ['TypeScript', 'MCP SDK', 'Cloudflare Workers'],
+    image: 'lut-lunch-mcp.png',
+    imageAlt: 'LUT Lunch MCP README with an example conversation where Claude answers a question about vegan lunch options',
+    caption: 'README preview · example conversation',
+    links: [
+      { label: 'View source', url: 'https://github.com/eerihyppanen/lut-lunch-mcp' },
+      { label: 'npm package', url: 'https://www.npmjs.com/package/@eerihyppanen/lut-lunch-mcp' },
+    ],
+    note: 'Personal project, not affiliated with LUT or the restaurants.',
+  },
+  {
     id: 'training-log',
     title: 'Training Log',
     category: 'Android application',
