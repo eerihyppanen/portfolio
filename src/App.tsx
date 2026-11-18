@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { projects, topics } from './projects'
+import { coursework, projects, topics } from './projects'
 import type { Project, Topic } from './projects'
 
 const asset = (name: string) => `${import.meta.env.BASE_URL}images/${name}`
@@ -20,12 +20,9 @@ function ProjectCard({ project, onPreview }: { project: Project; onPreview: (pro
   return (
     <article className={`project project--${project.id}`} id={project.id}>
       <button className="project-visual" onClick={() => onPreview(project)} aria-label={`Enlarge ${project.title} screenshot`}>
-        {project.id === 'training-log' ? (
-          <div className="training-screens">
-            <img src={asset('training-workout.png')} alt="Training Log workout entry screen" loading="lazy" width="362" height="748" />
-            <img src={asset(project.image)} alt={project.imageAlt} loading="lazy" />
-          </div>
-        ) : <div className="browser-frame"><div className="browser-bar" aria-hidden="true"><i /><i /><i /><span>{project.title}</span></div><img src={asset(project.image)} alt={project.imageAlt} loading="lazy" /></div>}
+        {project.mobile ? (
+          <div className="phone-screens">{project.screenshots.map(shot => <img key={shot.src} src={asset(shot.src)} alt={shot.alt} loading="lazy" />)}</div>
+        ) : <div className="browser-frame"><div className="browser-bar" aria-hidden="true"><i /><i /><i /><span>{project.title}</span></div>{project.screenshots.map(shot => <img key={shot.src} src={asset(shot.src)} alt={shot.alt} loading="lazy" />)}</div>}
         <span className="enlarge-label">View screenshot <span aria-hidden="true">＋</span></span>
       </button>
       <div className="project-copy">
@@ -58,9 +55,8 @@ function ScreenshotDialog({ project, onClose }: { project: Project | null; onClo
   return <dialog ref={dialog} className="image-dialog" onCancel={onClose} onClick={event => { if (event.target === event.currentTarget) onClose() }} aria-labelledby="screenshot-title">
     {project && <div className="dialog-content">
       <div className="dialog-header"><div><h2 id="screenshot-title">{project.title}</h2><p>{project.caption}</p></div><button onClick={onClose} aria-label="Close screenshot" autoFocus>×</button></div>
-      <div className={`dialog-images ${project.id === 'training-log' ? 'dialog-images--mobile' : ''}`}>
-        {project.id === 'training-log' && <img src={asset('training-workout.png')} alt="Actual Training Log workout entry screen" />}
-        <img src={asset(project.image)} alt={project.imageAlt} />
+      <div className={`dialog-images ${project.mobile ? 'dialog-images--mobile' : ''}`}>
+        {project.screenshots.map(shot => <img key={shot.src} src={asset(shot.src)} alt={shot.alt} />)}
       </div>
     </div>}
   </dialog>
@@ -104,6 +100,7 @@ export default function App() {
         </div>
         <dl className="hero-facts">
           <div><dt>Now</dt><dd>MSc Software Product Management and Business, LUT</dd></div>
+          <div><dt>Company</dt><dd>Co-founder, <a href="https://saimasol.fi/en/" target="_blank" rel="noreferrer">Saimasol Oy<span className="sr-only"> (opens in a new tab)</span></a></dd></div>
           <div><dt>Before</dt><dd>BSc Software Engineering, minor in IEM</dd></div>
           <div><dt>Focus</dt><dd>Mobile apps, web, AI-assisted development</dd></div>
           <div><dt>Location</dt><dd>Finland</dd></div>
@@ -113,11 +110,12 @@ export default function App() {
         <div className="section-heading"><div><h2 id="work-heading">Projects</h2><p>Personal projects and university coursework.</p></div></div>
         <div className="filter-row"><div className="filters" role="group" aria-label="Filter projects by topic">{topics.map(item => <button key={item} aria-pressed={topic === item} onClick={() => selectTopic(item)}>{item}</button>)}</div><p className="result-count" role="status" aria-live="polite">{visible.length} {visible.length === 1 ? 'project' : 'projects'}</p></div>
         <div className="project-grid">{visible.map(project => <ProjectCard key={project.id} project={project} onPreview={setPreview} />)}</div>
+        {topic === 'All work' && <div className="coursework"><h3>Coursework</h3><ul>{coursework.map(item => <li key={item.title}><div><strong>{item.title}</strong><p>{item.description}</p></div><div className="coursework-links">{item.links.map(link => <a key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.label}<ExternalIcon /><span className="sr-only"> for {item.title} (opens in a new tab)</span></a>)}</div></li>)}</ul></div>}
       </section>
       <section className="about-section" id="about" aria-labelledby="about-heading"><div className="wrap about-layout">
         <div className="about-title"><h2 id="about-heading">About me</h2></div>
-        <div className="about-copy"><p className="about-lead">Most of my projects start from an everyday problem, like logging workouts or checking what’s for lunch on campus.</p><p>I did my bachelor’s in software engineering at LUT University, with Industrial Engineering and Management (IEM) as my minor. Now I’m doing a master’s in Software Product Management and Business, and I’ve taken a lot of data analytics courses from the IEM side. I’m interested in both the product and the code, especially mobile development and UI design.</p><p>I use ChatGPT, Claude, Codex, and Claude Code regularly, and I’m comfortable with agentic workflows: connecting the tools to GitHub, adding plugins, and setting up Claude skills. Training Log, Campus Food, and the Discord bot were built this way.</p>
-          <dl className="skills"><div><dt>Interfaces</dt><dd>Kotlin, Jetpack Compose, React, HTML & CSS, responsive design</dd></div><div><dt>Applications</dt><dd>TypeScript, JavaScript, Node.js, Express, REST APIs, Git, testing</dd></div><div><dt>Data</dt><dd>Data analytics, Room, MongoDB</dd></div><div><dt>AI tools</dt><dd>Claude Code, Codex, Claude, ChatGPT, plugins and skills, GitHub integration</dd></div><div><dt>Product</dt><dd>Software product management, business, industrial engineering and management</dd></div></dl>
+        <div className="about-copy"><p className="about-lead">Most of my projects start from an everyday problem, like logging workouts or checking what’s for lunch on campus.</p><p>I did my bachelor’s in software engineering at LUT University, with Industrial Engineering and Management (IEM) as my minor. Now I’m doing a master’s in Software Product Management and Business, and I’ve taken a lot of data analytics courses from the IEM side. I’m interested in both the product and the code, especially mobile development and UI design.</p><p>I’m also a co-founder of <a href="https://saimasol.fi/en/" target="_blank" rel="noreferrer">Saimasol Oy<span className="sr-only"> (opens in a new tab)</span></a>, a software company in Lappeenranta that builds AI solutions for small and medium-sized businesses.</p><p>I use ChatGPT, Claude, Codex, and Claude Code regularly, and I’m comfortable with agentic workflows: connecting the tools to GitHub, adding plugins, and setting up Claude skills. Most of my recent projects were built this way, including LUT Lunch MCP, Chores, and Still.</p>
+          <dl className="skills"><div><dt>Interfaces</dt><dd>React Native (Expo), Kotlin, Jetpack Compose, React, HTML & CSS, responsive design</dd></div><div><dt>Applications</dt><dd>TypeScript, JavaScript, Node.js, Express, REST APIs, Git, testing</dd></div><div><dt>Data</dt><dd>Data analytics, Supabase (Postgres), SQLite, IndexedDB, MongoDB, Room</dd></div><div><dt>AI tools</dt><dd>Claude Code, Codex, Claude, ChatGPT, MCP servers, plugins and skills, GitHub integration</dd></div><div><dt>Product</dt><dd>Software product management, business, industrial engineering and management</dd></div></dl>
         </div>
       </div></section>
       <section className="contact-section wrap" id="contact" aria-labelledby="contact-heading"><div><h2 id="contact-heading">Get in touch</h2><p>The easiest way to reach me is on LinkedIn. My code is on GitHub.</p></div><div className="contact-links"><a href="https://www.linkedin.com/in/eerihyppanen" target="_blank" rel="noreferrer"><span className="contact-label"><LinkedInIcon />LinkedIn</span><ExternalIcon /></a><a href="https://github.com/eerihyppanen" target="_blank" rel="noreferrer"><span className="contact-label"><GitHubIcon />GitHub</span><ExternalIcon /></a></div></section>
