@@ -51,6 +51,8 @@
   .hero-facts > div { display: grid; grid-template-columns: 96px 1fr; gap: 16px; border-top: 1px solid var(--line); padding-block: 14px; font-size: .85rem; }
   .hero-facts > div:last-child { border-bottom: 1px solid var(--line); }
   .hero-facts dt { color: var(--muted); }
+  .hero-facts a, .about-copy a { text-decoration: underline; text-decoration-color: #b9cbd6; text-underline-offset: 4px; }
+  .hero-facts a:hover, .about-copy a:hover { color: #3c6c8c; text-decoration-color: currentColor; }
   .filter-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); padding-block: 20px 30px; }
   .filters { display: flex; flex-wrap: wrap; gap: 7px; }
   .filters button { border: 1px solid transparent; border-radius: 30px; padding: 9px 17px; background: transparent; color: #526775; font-size: .81rem; min-height: 42px; }
