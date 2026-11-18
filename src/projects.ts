@@ -99,7 +99,7 @@ export const projects: Project[] = [
     title: 'Distributed Chat',
     category: 'Distributed system',
     description: 'A chat app split into four services: a REST API, a real-time message server, a service that tracks who is online, and a React client.',
-    contribution: 'I built all four services and the React client in TypeScript.',
+    contribution: 'A university course project. I built all four services and the React client in TypeScript.',
     details: [
       'The API handles registration, JWT login, channels, and message history, with MongoDB for storage.',
       'A Socket.IO server delivers messages instantly and tells the presence service when users come and go.',
@@ -110,6 +110,7 @@ export const projects: Project[] = [
     screenshots: [{ src: 'distributed-chat.png', alt: 'Distributed Chat login screen running locally' }],
     caption: 'Login screen · local preview',
     links: [{ label: 'View source', url: 'https://github.com/eerihyppanen/Distributed_Project' }],
+    note: 'University course project.',
   },
   {
     id: 'money-left-over',
