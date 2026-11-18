@@ -1,6 +1,8 @@
 export const topics = ['All work', 'Mobile', 'Web', 'AI-assisted', 'Bots & APIs', 'Data'] as const
 export type Topic = typeof topics[number]
 
+export type Screenshot = { src: string; alt: string }
+
 export type Project = {
   id: string
   title: string
@@ -10,11 +12,18 @@ export type Project = {
   details: string[]
   topics: Topic[]
   stack: string[]
-  image: string
-  imageAlt: string
+  // Phone screenshots are shown side by side; anything else in a browser frame.
+  screenshots: Screenshot[]
+  mobile?: boolean
   caption: string
   links: { label: string; url: string }[]
   note?: string
+}
+
+export type Coursework = {
+  title: string
+  description: string
+  links: { label: string; url: string }[]
 }
 
 export const projects: Project[] = [
@@ -31,8 +40,7 @@ export const projects: Project[] = [
     ],
     topics: ['AI-assisted', 'Bots & APIs', 'Data'],
     stack: ['TypeScript', 'MCP SDK', 'Cloudflare Workers'],
-    image: 'lut-lunch-mcp.png',
-    imageAlt: 'LUT Lunch MCP README with an example conversation where Claude answers a question about vegan lunch options',
+    screenshots: [{ src: 'lut-lunch-mcp.png', alt: 'LUT Lunch MCP README with an example conversation where Claude answers a question about vegan lunch options' }],
     caption: 'README preview · example conversation',
     links: [
       { label: 'View source', url: 'https://github.com/eerihyppanen/lut-lunch-mcp' },
@@ -41,23 +49,50 @@ export const projects: Project[] = [
     note: 'Personal project, not affiliated with LUT or the restaurants.',
   },
   {
-    id: 'training-log',
-    title: 'Training Log',
-    category: 'Android application',
-    description: 'An Android app for logging workouts. Everything is stored on the phone, it keeps track of personal records, and it shows a progress chart for each exercise.',
-    contribution: 'A personal project I built with AI assistance, covering workout logging, progress tracking, goals, and the Compose UI.',
+    id: 'chores',
+    title: 'Chores',
+    category: 'Android app',
+    description: 'An app for the things you do every few days, weeks, or months, like washing the pillows or descaling the kettle. It shows what’s overdue, reminds you on the day something is due, and lets people who live together share chores and take turns.',
+    contribution: 'A personal project I built with Claude Code as a pair programmer. Each feature went through a written spec, a step-by-step plan, tests written first, a check on a real phone, and an independent review.',
     details: [
-      'Kotlin and Jetpack Compose screens for workouts, history, analytics, and goals.',
-      'Room stores workouts on the device; MVVM separates the interface from data and logic.',
-      'Personal records are detected automatically, and routines can be saved as workout templates.',
+      'Supabase backend where the database enforces security: row-level security keeps each household’s data private, and database functions make sure every household always has exactly one owner.',
+      'Whose turn it is is never stored. It’s worked out from who did the chore last, so Undo and backdating update it automatically.',
+      '365 unit and component tests, plus 66 tests against a real database with several users. Due dates are tested across month ends, leap years, and daylight saving changes.',
     ],
-    topics: ['Mobile', 'AI-assisted', 'Data'],
-    stack: ['Kotlin', 'Jetpack Compose', 'Room'],
-    image: 'training-progress.png',
-    imageAlt: 'Actual Training Log Android screen showing exercise progress charts',
-    caption: 'Original app screenshots',
-    links: [{ label: 'Explore project', url: 'https://github.com/eerihyppanen/TrainingAppReadme' }],
-    note: 'Documentation is public. Source available on request.',
+    topics: ['Mobile', 'AI-assisted'],
+    stack: ['React Native (Expo)', 'TypeScript', 'Supabase'],
+    screenshots: [
+      { src: 'chores-templates.jpg', alt: 'Chores “Add a chore” screen with common chores such as vacuuming every week and descaling the kettle every month' },
+      { src: 'chores-settings.jpg', alt: 'Chores settings with reminders and a shared household with options to invite someone or join a household' },
+    ],
+    mobile: true,
+    caption: 'Screenshots from an Android phone',
+    links: [{ label: 'Project page', url: 'https://github.com/eerihyppanen/chores-app' }],
+    note: 'Source available on request.',
+  },
+  {
+    id: 'still',
+    title: 'Still',
+    category: 'Android app',
+    description: 'An offline habit tracker for Android. You can see which habits need attention today and check one off without an account or an internet connection.',
+    contribution: 'A personal project I built with OpenAI Codex. I chose the features and used each round of testing and feedback to decide what to simplify or improve.',
+    details: [
+      'All data stays on the phone in SQLite. The Android app has no internet permission at all.',
+      'Schedule changes apply from the day they’re made, so earlier history keeps the schedule it had. Weekly goals and pauses are handled in streaks and reminders.',
+      'A small Kotlin module schedules repeating Android reminders that keep working while the app is closed. 106 automated tests, with calendar tests run in four time zones.',
+    ],
+    topics: ['Mobile', 'AI-assisted'],
+    stack: ['React Native (Expo)', 'TypeScript', 'SQLite'],
+    screenshots: [
+      { src: 'still-today.png', alt: 'Still Today screen with a morning walk, a weekly strength goal, and completed check-ins' },
+      { src: 'still-insights.png', alt: 'Still weekly recap with scheduled check-ins, strength training progress, and the most consistent habit' },
+    ],
+    mobile: true,
+    caption: 'Android screenshots with sample habits',
+    links: [
+      { label: 'View source', url: 'https://github.com/eerihyppanen/Still' },
+      { label: 'Download APK', url: 'https://github.com/eerihyppanen/Still/releases/latest' },
+    ],
   },
   {
     id: 'distributed-chat',
@@ -72,10 +107,33 @@ export const projects: Project[] = [
     ],
     topics: ['Web', 'Bots & APIs'],
     stack: ['TypeScript', 'Socket.IO', 'MongoDB'],
-    image: 'distributed-chat.png',
-    imageAlt: 'Distributed Chat login screen running locally',
+    screenshots: [{ src: 'distributed-chat.png', alt: 'Distributed Chat login screen running locally' }],
     caption: 'Login screen · local preview',
     links: [{ label: 'View source', url: 'https://github.com/eerihyppanen/Distributed_Project' }],
+  },
+  {
+    id: 'money-left-over',
+    title: 'Money Left Over',
+    category: 'Installable web app',
+    description: 'A phone-first app for recurring bills and income, like rent, subscriptions, and salary. It shows what lands each month and how much is left over, works offline, and keeps all data on the device.',
+    contribution: 'I built it with Claude Code as a pair programmer to solve my own problem: seeing all my subscriptions and bills in one place.',
+    details: [
+      'A bill on the 31st lands on the last day of shorter months and goes back to the 31st afterwards. Money is stored in whole cents to avoid rounding errors.',
+      'Installs to the home screen and works offline. JSON backup and restore, and a CSV export that blocks spreadsheet formulas.',
+      'Over 100 automated tests, including click-through tests of the whole app. GitHub Actions runs them before every deploy.',
+    ],
+    topics: ['Web', 'AI-assisted', 'Data'],
+    stack: ['React', 'TypeScript', 'IndexedDB'],
+    screenshots: [
+      { src: 'money-overview.png', alt: 'Money Left Over overview: what is left over this month, with a bar split into spent, still due, and left over' },
+      { src: 'money-upcoming.png', alt: 'Money Left Over in dark mode: payments due in the next 30 days, with dates, categories, and amounts' },
+    ],
+    mobile: true,
+    caption: 'Screenshots with sample data',
+    links: [
+      { label: 'Try the demo', url: 'https://eerihyppanen.github.io/money-tracker/#/?sample' },
+      { label: 'View source', url: 'https://github.com/eerihyppanen/money-tracker' },
+    ],
   },
   {
     id: 'campus-food',
@@ -90,10 +148,31 @@ export const projects: Project[] = [
     ],
     topics: ['Web', 'AI-assisted'],
     stack: ['Next.js', 'React', 'Vercel'],
-    image: 'campus-food.png',
-    imageAlt: 'Campus Food live website showing campus restaurant lunch menus',
+    screenshots: [{ src: 'campus-food.png', alt: 'Campus Food live website showing campus restaurant lunch menus' }],
     caption: 'Live website · October 2026',
     links: [{ label: 'Visit website', url: 'https://campus-food-sigma.vercel.app/' }],
+  },
+  {
+    id: 'training-log',
+    title: 'Training Log',
+    category: 'Android app',
+    description: 'An Android app for logging workouts. Everything is stored on the phone, it keeps track of personal records, and it shows a progress chart for each exercise.',
+    contribution: 'A personal project I built with AI assistance, covering workout logging, progress tracking, goals, and the Compose UI.',
+    details: [
+      'Kotlin and Jetpack Compose screens for workouts, history, analytics, and goals.',
+      'Room stores workouts on the device; MVVM separates the interface from data and logic.',
+      'Personal records are detected automatically, and routines can be saved as workout templates.',
+    ],
+    topics: ['Mobile', 'AI-assisted', 'Data'],
+    stack: ['Kotlin', 'Jetpack Compose', 'Room'],
+    screenshots: [
+      { src: 'training-workout.png', alt: 'Training Log workout entry screen' },
+      { src: 'training-progress.png', alt: 'Training Log exercise progress charts' },
+    ],
+    mobile: true,
+    caption: 'Original app screenshots',
+    links: [{ label: 'Explore project', url: 'https://github.com/eerihyppanen/TrainingAppReadme' }],
+    note: 'Documentation is public. Source available on request.',
   },
   {
     id: 'discord-bot',
@@ -108,46 +187,29 @@ export const projects: Project[] = [
     ],
     topics: ['Bots & APIs', 'AI-assisted'],
     stack: ['JavaScript', 'Node.js', 'Discord.js'],
-    image: 'discord-source.png',
-    imageAlt: 'Actual Discord Bot reminder command source on GitHub',
+    screenshots: [{ src: 'discord-source.png', alt: 'Discord Bot reminder command source on GitHub' }],
     caption: 'Source preview · reminder command',
     links: [{ label: 'View source', url: 'https://github.com/eerihyppanen/discordBot' }],
   },
+]
+
+export const coursework: Coursework[] = [
   {
-    id: 'statistics-portal',
     title: 'Statistics Portal',
-    category: 'Interactive data visualization',
-    description: 'A web app for exploring public statistics about Finnish municipalities on a map and in charts.',
-    contribution: 'I connected the public APIs, built the map layers and charts, and designed the layout for desktop and mobile.',
-    details: [
-      'Statistics Finland data is presented through Leaflet maps and Frappe Charts.',
-      'Municipality selection connects the map to charts, with line, bar, and pie views.',
-      'Added SVG export, dark mode, and an in-app manual for a university web programming project.',
-    ],
-    topics: ['Web', 'Data', 'Bots & APIs'],
-    stack: ['JavaScript', 'Leaflet', 'Frappe Charts'],
-    image: 'statistics.png',
-    imageAlt: 'Original Statistics Portal interface and built-in manual, with API data currently unavailable',
-    caption: 'Original interface · API data unavailable',
-    links: [{ label: 'View source', url: 'https://github.com/eerihyppanen/ProjectWorkWeb' }],
-    note: 'Made for a course. The data APIs it used have since changed, so live data no longer loads.',
+    description: 'Public statistics about Finnish municipalities on a map and in charts. JavaScript, Leaflet, and Frappe Charts.',
+    links: [{ label: 'Source', url: 'https://github.com/eerihyppanen/ProjectWorkWeb' }],
   },
   {
-    id: 'forum',
     title: 'Forum',
-    category: 'Full-stack web application',
-    description: 'A discussion forum made for a university course, with user accounts, topics, and separate permissions for admins.',
-    contribution: 'I built it step by step through course exercises: a TypeScript and Express REST API with a JavaScript front end.',
-    details: [
-      'Implemented registration, login, JWT authentication, and password hashing.',
-      'MongoDB and Mongoose store users and discussion topics.',
-      'API validation and route middleware support user and administrator actions.',
+    description: 'A discussion forum with accounts, JWT login, and admin permissions. TypeScript, Express, and MongoDB.',
+    links: [{ label: 'Source', url: 'https://github.com/eerihyppanen/RedditExercise' }],
+  },
+  {
+    title: 'Operating systems in C',
+    description: 'A new system call for the xv6 teaching operating system, and Unix tools: reverse, cat, grep, and run-length compression.',
+    links: [
+      { label: 'xv6', url: 'https://github.com/eerihyppanen/CT30A3370Project4' },
+      { label: 'Unix tools', url: 'https://github.com/eerihyppanen/CT30A3370Project2' },
     ],
-    topics: ['Web', 'Bots & APIs'],
-    stack: ['TypeScript', 'Express', 'MongoDB'],
-    image: 'forum.png',
-    imageAlt: 'Original Forum registration interface running locally',
-    caption: 'Registration screen · local preview',
-    links: [{ label: 'View source', url: 'https://github.com/eerihyppanen/RedditExercise' }],
   },
 ]

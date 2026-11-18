@@ -10,10 +10,11 @@ An original interface, using the old portfolio only as a source of personal fact
     name                       work / about / contact
     name / studies             facts list
     topic filters
-    LUT Lunch MCP              Training Log
-    Distributed Chat           Campus Food
-    Discord Bot                Statistics Portal
-    Forum
+    LUT Lunch MCP              Chores
+    Still                      Distributed Chat
+    Money Left Over            Campus Food
+    Training Log               Discord Bot
+    coursework list (All work only)
     about / capabilities
     contact
 

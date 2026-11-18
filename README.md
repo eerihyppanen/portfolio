@@ -32,7 +32,9 @@ npm run preview   # Serve the production build
 - `src/styles.css`: colors, typography, and responsive layouts.
 - `public/images/`: self-hosted project captures. [Image provenance](docs/content-sources.md) records where each came from.
 
-The seven projects, strongest first, are LUT Lunch MCP, Training Log, Distributed Chat, Campus Food (which has a live demo), Discord Bot, Statistics Portal, and Forum. Training Log's source remains private; its public documentation is linked instead. Campus Food's private repository is not exposed.
+The eight projects, strongest first, are LUT Lunch MCP, Chores, Still, Distributed Chat, Money Left Over (which has a live demo), Campus Food (live website), Training Log, and Discord Bot. Smaller coursework (Statistics Portal, Forum, and operating systems work in C) is listed as text under the grid, on the All work view only. Chores and Training Log link to public showcase pages because their source is private. Campus Food's private repository is not exposed.
+
+Projects with `mobile: true` show their phone screenshots side by side; others show one screenshot in a browser frame.
 
 Topics are single-selection filters. A URL such as `?topic=AI-assisted#work` opens that selection directly. Back/forward navigation restores the selected topic. Projects can belong to several topics. AI-assisted means confirmed use of AI during development; an AI API integration alone is not labeled as AI-assisted authorship.
 
