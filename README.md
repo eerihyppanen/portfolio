@@ -31,6 +31,7 @@ npm run preview   # Serve the production build
 - `src/App.tsx`: introduction, skills, contact links, and reusable components.
 - `src/styles.css`: colors, typography, and responsive layouts.
 - `public/images/`: self-hosted project captures. [Image provenance](docs/content-sources.md) records where each came from.
+- `public/social-card.png`: the 1200 × 630 link preview image (`og:image` in `index.html`), a capture of the site's introduction. When it changes, save it under a new file name and update `index.html`, because LinkedIn and other sites cache the old image by its URL.
 
 The nine projects, strongest first, are LUT Lunch MCP, Chores, Guildhaven, Still, Distributed Chat, Money Left Over (which has a live demo), Campus Food (live website), Training Log, and Discord Bot. Smaller coursework (Statistics Portal, Forum, and operating systems work in C) is listed as text under the grid, on the All work view only. Chores, Guildhaven, and Training Log link to public showcase pages because their source is private. Campus Food's private repository is not exposed.
 
