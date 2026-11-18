@@ -32,7 +32,7 @@ npm run preview   # Serve the production build
 - `src/styles.css`: colors, typography, and responsive layouts.
 - `public/images/`: self-hosted project captures. [Image provenance](docs/content-sources.md) records where each came from.
 
-The eight projects, strongest first, are LUT Lunch MCP, Chores, Still, Distributed Chat, Money Left Over (which has a live demo), Campus Food (live website), Training Log, and Discord Bot. Smaller coursework (Statistics Portal, Forum, and operating systems work in C) is listed as text under the grid, on the All work view only. Chores and Training Log link to public showcase pages because their source is private. Campus Food's private repository is not exposed.
+The nine projects, strongest first, are LUT Lunch MCP, Chores, Guildhaven, Still, Distributed Chat, Money Left Over (which has a live demo), Campus Food (live website), Training Log, and Discord Bot. Smaller coursework (Statistics Portal, Forum, and operating systems work in C) is listed as text under the grid, on the All work view only. Chores, Guildhaven, and Training Log link to public showcase pages because their source is private. Campus Food's private repository is not exposed.
 
 Projects with `mobile: true` show their phone screenshots side by side; others show one screenshot in a browser frame.
 
